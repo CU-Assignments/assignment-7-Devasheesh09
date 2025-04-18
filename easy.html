@@ -1,0 +1,33 @@
+import java.sql.*;
+
+public class MySQLConnectionExample {
+    public static void main(String[] args) {easy
+            while (resultSet.next()) {
+                int empID = resultSet.getInt("EmpID");
+                String name = resultSet.getString("Name");
+                double salary = resultSet.getDouble("Salary");
+
+                // Display each record
+                System.out.println("EmpID: " + empID + ", Name: " + name + ", Salary: " + salary);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Step 5: Close all resources to prevent memory leaks
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
